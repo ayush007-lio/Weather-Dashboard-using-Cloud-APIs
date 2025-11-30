@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Atmospheric Tech Theme - Day Mode */
+    --background: 220 30% 8%;
+    --foreground: 210 100% 98%;
+
+    --card: 220 25% 12% / 0.4;
+    --card-foreground: 210 100% 98%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 100% 98%;
+
+    --primary: 195 100% 55%;
+    --primary-foreground: 220 30% 8%;
+
+    --secondary: 245 70% 60%;
+    --secondary-foreground: 210 100% 98%;
+
+    --muted: 220 20% 20% / 0.5;
+    --muted-foreground: 210 40% 70%;
+
+    --accent: 180 100% 45%;
+    --accent-foreground: 220 30% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 30% 25% / 0.3;
+    --input: 220 30% 25% / 0.5;
+    --ring: 195 100% 55%;
+
+    --radius: 1rem;
+
+    /* Custom atmospheric gradients */
+    --gradient-day: linear-gradient(135deg, hsl(200 80% 40%), hsl(240 60% 30%));
+    --gradient-night: linear-gradient(135deg, hsl(240 50% 15%), hsl(260 60% 25%));
+    --gradient-glass: linear-gradient(135deg, hsl(220 25% 12% / 0.7), hsl(220 25% 12% / 0.3));
+    
+    /* Glass effects */
+    --glass-bg: hsl(220 25% 12% / 0.4);
+    --glass-border: hsl(220 30% 35% / 0.3);
+    --glass-highlight: hsl(195 100% 55% / 0.1);
+    
+    /* Status colors */
+    --status-connected: 142 76% 36%;
+    --status-warning: 38 92% 50%;
+    --status-error: 0 84% 60%;
+
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 210 40% 70%;
+    --sidebar-primary: 195 100% 55%;
+    --sidebar-primary-foreground: 220 30% 8%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 210 100% 98%;
+    --sidebar-border: 220 30% 25%;
+    --sidebar-ring: 195 100% 55%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 210 100% 98%;
+    --card: 220 25% 12% / 0.4;
+    --card-foreground: 210 100% 98%;
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 100% 98%;
+    --primary: 195 100% 55%;
+    --primary-foreground: 220 30% 8%;
+    --secondary: 245 70% 60%;
+    --secondary-foreground: 210 100% 98%;
+    --muted: 220 20% 20% / 0.5;
+    --muted-foreground: 210 40% 70%;
+    --accent: 180 100% 45%;
+    --accent-foreground: 220 30% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 30% 25% / 0.3;
+    --input: 220 30% 25% / 0.5;
+    --ring: 195 100% 55%;
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 210 40% 70%;
+    --sidebar-primary: 195 100% 55%;
+    --sidebar-primary-foreground: 220 30% 8%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 210 100% 98%;
+    --sidebar-border: 220 30% 25%;
+    --sidebar-ring: 195 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply backdrop-blur-xl bg-card border border-glass-border rounded-2xl shadow-2xl;
+    background: var(--glass-bg);
+  }
+  
+  .glass-panel-hover {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:border-primary/50;
+  }
+
+  .gradient-day {
+    background: var(--gradient-day);
+  }
+
+  .gradient-night {
+    background: var(--gradient-night);
+  }
+
+  .status-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 10px currentColor;
+    }
+    50% {
+      opacity: 0.7;
+      box-shadow: 0 0 20px currentColor;
+    }
+  }
+}
