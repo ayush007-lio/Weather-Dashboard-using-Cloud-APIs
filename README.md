@@ -1,69 +1,109 @@
-Project Title Dynamic weather dashboard
+# 🌦️ Dynamic Weather Dashboard
 
-Description A sleek, responsive weather dashboard built with pure vanilla JavaScript. It transforms OpenWeather API data into a beautiful glassmorphism UI, complete with dynamic backgrounds, animated Skycons, and a detailed 5-day forecast.
+> A sleek, responsive weather dashboard built with pure vanilla JavaScript. It transforms OpenWeather API data into a beautiful glassmorphism UI, complete with dynamic backgrounds, animated Skycons, and a detailed 5-day forecast.
 
-Live Demo Link https://nimbus-cloud-dashboard.netlify.app/
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Click_Here-blue?style=for-the-badge&logo=netlify)](https://nimbus-cloud-dashboard.netlify.app/)
 
-Screenshot
+## 📸 Screenshots
 
-w1 w2 w3
-Core Features
+<div align="center">
+  <img src="<img width="1647" height="770" alt="Screenshot (56)" src="https://github.com/user-attachments/assets/05be6769-93f5-44d3-904d-2c502d9107f3" />
+" alt="Dashboard Main View" width="30%" />
+  <img src="<img width="1625" height="795" alt="Screenshot (57)" src="https://github.com/user-attachments/assets/f270deb5-39ba-469a-a6d2-d60f38305548" />
+" alt="Mobile View" width="30%" />
+  <img src="./path-to-your-image3.png" alt="Search Result" width="30%" />
+</div>
 
-Real-time Weather
-Geolocation
-5-Day Forecast (with High/Low)
-Dynamic Backgrounds
-Unit Conversion (°C/°F)
-Technology Stack
+---
 
-JavaScript (ES6+)
-HTML5
-CSS3 (Flexbox, Grid)
-OpenWeather API
-Skycons
-How to Run Locally
+## ✨ Core Features
 
-Clone the repository.
-Get an API key from OpenWeather.
-Add the key to script.js.
-Open index.html in a browser.
-How it Works (Workflow)
+* **Real-time Weather:** Fetches live data for any city globally.
+* **📍 Geolocation:** Automatically detects user location on startup.
+* **📅 5-Day Forecast:** Detailed forecast cards including High/Low temps.
+* **🎨 Dynamic Backgrounds:** The UI changes based on the weather condition (Sunny, Rainy, Cloudy, etc.).
+* **🔄 Unit Conversion:** Toggle seamlessly between Celsius (°C) and Fahrenheit (°F).
 
-   1. When You First Open the Page
-  When you open `index.html`, the app wakes up. It reads the HTML for the layout, the CSS for the style, and the JavaScript for the brains. The JavaScript file attaches all the "click" listeners to the buttons, like setting up little tripwires, but it doesn't show any weather. It just waits for you to do something.
+## 🛠️ Technology Stack
 
-   2. When You Search for a City
-        1.  You type "London" and hit the search button.
-        2.  This triggers the "search" tripwire, which starts its job.
-        3.  The app immediately **shows the loading spinner** and hides any old results.
-        4.  It sends out **two "to-do" lists** to the OpenWeather company:
-              List 1: "What's the weather *right now* in London?"
-              List 2: "What's the forecast for the *next 5 days* in London?"
-        5.  The app waits for **both** lists to be sent back.
+* ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) **HTML5**
+* ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) **CSS3 (Flexbox & Grid)**
+* ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) **JavaScript (ES6+)**
+* ☁️ **OpenWeather API**
+* 🌥️ **Skycons** (Animated weather icons)
 
+---
 
- 3. When the Weather Info Comes Back
-      1.  The app gets the two completed lists (the JSON data) from OpenWeather.
-      2.  It **hides the loading spinner**.
-      3.  It reads the lists and starts **building the page**:
-          * It puts "London" in the city name spot.
-          * It puts the current temperature (like 15°C) on the screen.
-          * It changes the whole page background to a "sunny" picture.
-          * It draws the animated "sun" icon.
-          * It reads the 5-day list and creates the five little forecast cards, one by one.
-      4.  Finally, it **fades in the new weather information** all at once.
+## 🚀 How to Run Locally
 
+Follow these steps to get the project running on your machine:
 
- 4. When You Click the °C / °F Toggle
-      1.  You click the switch.
-      2.  The app **does not** ask OpenWeather for new info. It already has the data.
-      3.  It just looks at the 15°C it has stored, **does the math** to turn it into 59°F, and just updates the text on the page.
-      4.  It does this for the main temperature and all five forecast cards instantly.
-      
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/ayush007-lio/Nimbus-cloud-hub.git](https://github.com/ayush007-lio/Nimbus-cloud-hub.git)
+    cd Nimbus-cloud-hub
+    ```
 
- 5. What If You Search for a Fake City?
-      1.  You type "FakeCity" and hit search.
-      2.  The app shows the loading spinner and sends its two "to-do" lists.
-      3.  OpenWeather gets the lists and sends back a reply: **"Sorry, I don't know a 'FakeCity'."**
-      4.  The app sees this "Sorry" message.
-      5.  It **hides the loading spinner** and shows the **red error message** on the screen instead of the weather.
+2.  **Get an API Key**
+    * Sign up at [OpenWeatherMap](https://openweathermap.org/api).
+    * Subscribe to the "Current Weather" and "5 Day Forecast" APIs (Free tier).
+
+3.  **Configure the Key**
+    * Open `script.js` (or your config file).
+    * Replace the placeholder key with your actual API key:
+        ```javascript
+        const apiKey = "YOUR_OPENWEATHER_API_KEY";
+        ```
+
+4.  **Run the App**
+    * Simply open `index.html` in your preferred browser.
+    * *Optional:* Use the "Live Server" extension in VS Code for a better experience.
+
+---
+
+## 🧠 How it Works (Workflow)
+
+Here is a breakdown of the logic behind the dashboard:
+
+### 1. 🟢 When You First Open the Page
+When `index.html` loads, the app wakes up. It reads the HTML layout, applies CSS styles, and initializes the JavaScript.
+* The script attaches "click" listeners (event listeners) to buttons.
+* It waits for user interaction or geolocation permission.
+
+### 2. 🔍 When You Search for a City
+1.  You type "London" and hit the search button.
+2.  The app triggers the search event.
+3.  **UI Update:** The loading spinner appears, and old results are hidden.
+4.  **API Call:** The app sends two parallel requests to OpenWeather:
+    * *"What's the weather right now?"* (Current Weather API)
+    * *"What's the forecast for the next 5 days?"* (Forecast API)
+5.  The app waits for both promises to resolve.
+
+### 3. 📡 When the Weather Info Comes Back
+1.  The app receives the JSON data.
+2.  **UI Update:** Hides the loading spinner.
+3.  **Rendering:**
+    * Updates the City Name and Current Temp (e.g., 15°C).
+    * **Dynamic Background:** Changes the wallpaper based on weather condition (e.g., Sunny).
+    * **Skycons:** Renders the appropriate animated icon.
+    * **Forecast:** Loops through the data to create 5 forecast cards.
+4.  Finally, the new information fades in smoothly.
+
+### 4. 🌡️ When You Click the °C / °F Toggle
+1.  You click the unit switch.
+2.  **No API Call:** The app *does not* request new data.
+3.  **Math Logic:** It takes the stored temperature (Celsius), applies the conversion formula, and updates the DOM text instantly.
+4.  This updates the main temperature and all 5-day forecast cards simultaneously.
+
+### 5. ❌ What If You Search for a Fake City?
+1.  You type "FakeCity" and hit search.
+2.  The app sends the request.
+3.  OpenWeather responds with a `404 Not Found`.
+4.  The app catches this error.
+5.  **Error Handling:** It hides the spinner and displays a user-friendly **red error message** ("City not found") instead of breaking the UI.
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
